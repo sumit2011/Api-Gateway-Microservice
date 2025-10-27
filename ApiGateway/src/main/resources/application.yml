@@ -1,0 +1,39 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      routes:
+		
+        # User Service Route
+        - id: user-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/users/**
+          filters:
+            - AddRequestHeader=X-Gateway, API-Gateway
+            - RemoveRequestHeader=Cookie
+
+        # Order Service Route
+
+        - id: order-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/orders/**
+          filters:
+            - AddRequestHeader=X-Gateway, API-Gateway
+
+        # Product Service Route
+		
+        - id: product-service
+          uri: http://localhost:8083
+          predicates:
+            - Path=/products/**
+          filters:
+            - AddRequestHeader=X-Gateway, API-Gateway
+
+			

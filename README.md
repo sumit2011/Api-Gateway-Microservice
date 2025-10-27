@@ -1,4 +1,4 @@
-# Implementation of API Gateway in Microservices
+## Implementation of API Gateway in Microservices
 
 Basically It provides a single entry point for clients routing requests to the appropriete microservices. It acts as a single entry point between the client and the balanced services.
 
@@ -11,14 +11,20 @@ Basically It provides a single entry point for clients routing requests to the a
 
 > using spring boot maven
 
+Docs: https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/
+
 ### app1: Eureka server
 > maven project
 > dependencies: 
     * Eureka Server
     * cloud bootstrap(optional)
-
+> add @enableEurekaServer annotation in main app.java file
 ### App2: Api Gateway
 > maven project
 > dependencies: 
     * Eureka Client
     *
+
+### App3: User Service
+### App4: Order Service
+### App5: Product Service
