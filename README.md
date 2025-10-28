@@ -13,18 +13,23 @@ Basically It provides a single entry point for clients routing requests to the a
 
 Docs: https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/
 
+> user spring initializer to build the initial setup of the project
 ### app1: Eureka server
-> maven project
+maven project
 > dependencies: 
     * Eureka Server
     * cloud bootstrap(optional)
 > add @enableEurekaServer annotation in main app.java file
-### App2: Api Gateway
-> maven project
+### app2: Api Gateway
+maven project
 > dependencies: 
     * Eureka Client
     *
 
-### App3: User Service
-### App4: Order Service
-### App5: Product Service
+### app3: User Service
+Maven Project
+> Dependencies: Spring web, Spring Data JPA, Mysql driver, Lombok
+
+### app4: Order Service
+
+### app5: Product Service
