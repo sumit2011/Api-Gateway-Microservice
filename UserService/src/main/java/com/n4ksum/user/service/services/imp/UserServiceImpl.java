@@ -1,6 +1,7 @@
 package com.n4ksum.user.service.services.imp;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,9 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User saveUser(User user) {
 		// TODO Auto-generated method stub
+		// auto generate unique userid
+		String randomUserId = UUID.randomUUID().toString();
+		user.setUserId(randomUserId);
 		return userRepository.save(user);
 	}
 
