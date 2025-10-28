@@ -46,7 +46,7 @@ This project demonstrates the implementation of an API Gateway pattern in a micr
   - MySQL Driver
   - Lombok
 
-#### Order Service
+#### Hotel Service
 - **Port:** 8082
 - **Database:** PostgreSQL
 - **Dependencies:**
@@ -55,7 +55,7 @@ This project demonstrates the implementation of an API Gateway pattern in a micr
   - PostgreSQL Driver
   - Lombok
 
-#### Product Service
+#### Rating Service
 - **Port:** 8083
 - **Database:** MongoDB
 - **Dependencies:**
