@@ -1,43 +1,79 @@
-## Implementation of API Gateway in Microservices
+# API Gateway Implementation in Microservices
 
-Basically It provides a single entry point for clients routing requests to the appropriete microservices. It acts as a single entry point between the client and the balanced services.
+## Overview
+This project demonstrates the implementation of an API Gateway pattern in a microservices architecture. The API Gateway serves as a single entry point for clients, efficiently routing requests to appropriate microservices.
 
-### How it works?
-* client sends a req ex: api/order.
-* gateway receives it and determine which microservice should handle it.
-* the gateway forward the req to the correct microservices.
-* the microservice processes the req and sends a response.
-* the gateway returns the response to the client.
+## Architecture Flow
+1. Client sends a request (e.g., `api/order`)
+2. Gateway receives and analyzes the request
+3. Gateway routes request to appropriate microservice
+4. Microservice processes the request
+5. Gateway returns response to client
 
-> using spring boot maven
+## Technology Stack
+- Spring Boot
+- Spring Cloud Gateway
+- Maven
+- Multiple databases (MySQL, PostgreSQL, MongoDB)
 
-Docs: https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/
+## Official Documentation
+- [Spring Cloud Gateway Documentation](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/)
 
-> user spring initializer to build the initial setup of the project
-### app1: Eureka server (Service Registery)
-* maven project
-> dependencies: Eureka Server, cloud bootstrap(optional)
+## Project Components
 
-* add @enableEurekaServer annotation in main app.java file
-### app2: Api Gateway (Single Entry Point)
-* maven project
-> dependencies: Eureka Client
+### 1. Service Registry (Eureka Server)
+- **Project Type:** Maven
+- **Dependencies:**
+  - Eureka Server
+  - Spring Cloud Bootstrap (optional)
+- **Configuration:**
+  - Add `@EnableEurekaServer` annotation in main application class
 
-### Microservice 1: User Service
-* Maven Project
-* Database: MySql
-* Running Port: 8081
-> Dependencies: Spring web, Spring Data JPA, Mysql driver, Lombok
+### 2. API Gateway
+- **Project Type:** Maven
+- **Dependencies:**
+  - Eureka Client
+- **Purpose:** Routes requests to appropriate microservices
 
+### 3. Microservices
 
-### Microservice 2: Order Service
-* Maven Project
-* Database: Postgres
-* Running Port: 8082
-> Dependencies: Spring Web, Spring Data JPA, Postgres Driver, Lombok
+#### User Service
+- **Port:** 8081
+- **Database:** MySQL
+- **Dependencies:**
+  - Spring Web
+  - Spring Data JPA
+  - MySQL Driver
+  - Lombok
 
-### Microservice 3: Product Service
-* Maven Project
-* Database: Mongo Db
-* Running Port: 8083
-> Dependencies : Spring Web, Spring Data JPA, Lombok
+#### Order Service
+- **Port:** 8082
+- **Database:** PostgreSQL
+- **Dependencies:**
+  - Spring Web
+  - Spring Data JPA
+  - PostgreSQL Driver
+  - Lombok
+
+#### Product Service
+- **Port:** 8083
+- **Database:** MongoDB
+- **Dependencies:**
+  - Spring Web
+  - Spring Data JPA
+  - Lombok
+
+## Setup Instructions
+1. Create projects using Spring Initializer
+2. Configure each service with appropriate dependencies
+3. Set up respective databases
+4. Configure service ports and Eureka client settings
+
+## Running the Application
+1. Start Eureka Server
+2. Start API Gateway
+3. Start individual microservices
+
+## Additional Notes
+- Ensure all databases are running before starting services
+- Verify service registration in Eureka Dashboard
